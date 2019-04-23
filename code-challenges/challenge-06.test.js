@@ -163,12 +163,20 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 //   },
 const houseSize = (arr) => {
   const sizes = [];
-  let ob ={}
-  
-  // Solution code here...
+
+  for (let i = 0; i < arr.length; i++) {
+    let house = arr[i].house;
+    let members = arr[i].children.length + 2;
+    if (arr[i].spouse === null) {
+      members = members - 1;
+    }
+
+    let household = {house, members};
+    sizes.push(household);
+  }
   return sizes;
-  //return [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ... ].
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
