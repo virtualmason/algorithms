@@ -111,40 +111,36 @@ Here is an example of the input:
 
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
-
-onst sortBy = (property, arr) => {
+const sortBy = (property, arr) => {
   // Solution code here...
-
-  let list =[];
-  if(property === 'price') {
-    list.push(arr[0])
-
-   for(let i =0; i< arr.length;i++) {
-     if(arr[i].price < list[i].price ) {
-      list.slice(i);
-list.unshift(arr[i]);
-     } else{
-       list.push(arr[i])
-     }
-  
+  arr.sort((a, b) => {
+    if (a[property] < b[property]) {
+      return -1;
+    } else {
+      return 1;
     }
-  } else {
-    list.push(arr[0])
+  });
+  return arr;
+};
 
-   for(let i =0; i< arr.length;i++) {
-     if(arr[i].name.charCodeAt(0) < list[i].name.charCodeAt(0) ) {
-      list.slice(i);
-list.unshift(arr[i]);
-     } else{
-       list.push(arr[i])
-     }
-  
-    }
+// const sortBy = (property, arr) => {
+//   // Solution code here...
+//   if(property === 'price') {
+//     return arr.sort((a,b)=> {
+//       return a.price - b.price;
+//     });
 
-  }
-     
-return list;
-}
+//   } else {
+//     return arr.map((row,i, ar)=> {
+//       return ar.sort((a,b)=>{
+//         console.log(a.name - b.name);
+//       });
+//     });
+
+
+
+//   }//else
+// };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
