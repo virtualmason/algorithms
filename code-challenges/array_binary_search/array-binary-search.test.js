@@ -1,7 +1,7 @@
 let func = require('./array-binary-search');
 
 
-describe('binary function', () => {
+xdescribe('binary function', () => {
   it('return key if there', () => {
     expect(func([1,2,3,4,5,6,7,8,12], 6)).toBe(4)
     
